@@ -1,0 +1,41 @@
+{
+	"name": "psymon",
+	"version": "0.0.1",
+	"description": "",
+	"keywords": [],
+	"main": "src/index.js",
+	"dependencies": {},
+	"peerDependencies": {
+		"react": "^16.0.0"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.0.0-beta.40",
+		"@babel/core": "^7.0.0-beta.40",
+		"@babel/preset-env": "^7.0.0-beta.40",
+		"@babel/preset-flow": "^7.0.0-beta.40",
+		"@babel/preset-react": "^7.0.0-beta.40",
+		"@babel/preset-stage-0": "^7.0.0-beta.40",
+		"babel-plugin-flow-runtime": "^0.17.0",
+		"babel-plugin-module-resolver": "^3.1.0",
+		"babel-plugin-trace": "^1.1.0",
+		"babel-plugin-transform-dev": "^2.0.1",
+		"babel-preset-flow": "^6.23.0"
+	},
+	"scripts": {
+		"test": "jest"
+	},
+	"babel": {
+		"presets": [
+			[
+				"@babel/preset-env",
+				{
+					"loose": true,
+					"targets": {
+						"browsers": ["last 1 version"]
+					}
+				}
+			],
+			"@babel/preset-flow"
+		]
+	}
+}
