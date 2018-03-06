@@ -8,11 +8,30 @@ Class based React components are often misused. They can grow to become thousand
 
 ## API
 
-### `psymon.component`
+### Relevant Types
+
+```js
+type ObjectOfAnyT = {
+	[name: string]: any
+};
+
+type ObjectOfFunctionsT = {
+	[name: string]: Function
+};
+
+type SetupT = {
+	state: ObjectOfAnyT,
+	methods: ObjectOfFunctionsT,
+	lifecycle: ObjectOfFunctionsT,
+	component: React.ComponentType
+};
+```
+
+### `psymon.component(name: string, setup: SetupT, pure: boolean)`
 
 TODO
 
-### `psymon.pureComponent`
+### `psymon.pureComponent(name: string, setup: SetupT)`
 
 TODO
 
@@ -20,7 +39,7 @@ TODO
 
 ## Usage Example
 
-```javascript
+```js
 // index.js
 
 import psymon from 'psymon';
@@ -42,7 +61,7 @@ export const TodoList = psymon.component('TodoList', {
 });
 ```
 
-```javascript
+```js
 // ./lifecycle.js
 
 export const componentDidUpdate = (self) => () => {
@@ -51,7 +70,7 @@ export const componentDidUpdate = (self) => () => {
 };
 ```
 
-```javascript
+```js
 // ./methods.js
 
 export const setInputValue = (self) => (event) => {
