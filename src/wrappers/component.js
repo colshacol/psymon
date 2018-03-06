@@ -28,13 +28,15 @@ export const component = (
 	setup: SetupT = defaultSetup,
 	pure: boolean = false
 ) => {
-	return class PsymonComponent extends (pure ? PureComponent : Component) {
+	const _name = name || (setup.pure ? 'PsymonPureComponent' : 'PsymonComponent');
+
+	const Wrapper = class extends (pure ? PureComponent : Component) {
 		constructor(props) {
 			super(props);
 
 			const self = this;
 			self.state = setup.state;
-			self.displayName = name;
+			self.displayName = _name;
 
 			entriesOf([setup.methods, setup.lifecycle]).forEach((method) => {
 				self[method[0]] = method[1](self);
@@ -47,4 +49,10 @@ export const component = (
 			return setup.component(self)(props);
 		}
 	};
+
+	Object.defineProperty(Wrapper, 'name', {
+		value: _name
+	});
+
+	return Wrapper;
 };

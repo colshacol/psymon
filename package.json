@@ -1,10 +1,19 @@
 {
 	"name": "psymon",
-	"version": "0.0.1",
+	"version": "1.0.1",
 	"description": "",
-	"keywords": [],
-	"main": "src/index.js",
+	"keywords": [
+		"react",
+		"functional programming",
+		"redux",
+		"mobx"
+	],
+	"main": "lib/index.js",
 	"dependencies": {},
+	"scripts": {
+		"build": "babel src --out-dir lib",
+		"test": "jest"
+	},
 	"peerDependencies": {
 		"react": "^16.0.0"
 	},
@@ -21,9 +30,6 @@
 		"babel-plugin-transform-dev": "^2.0.1",
 		"babel-preset-flow": "^6.23.0"
 	},
-	"scripts": {
-		"test": "jest"
-	},
 	"babel": {
 		"presets": [
 			[
@@ -31,7 +37,9 @@
 				{
 					"loose": true,
 					"targets": {
-						"browsers": ["last 1 version"]
+						"browsers": [
+							"last 3 versions"
+						]
 					}
 				}
 			],

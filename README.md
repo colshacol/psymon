@@ -29,11 +29,12 @@ type SetupT = {
 
 ### `psymon.component(name: string, setup: SetupT, pure: boolean)`
 
-TODO
+Takes a stateless component, methods, lifecycle hooks, and state, and generates a stateful component. Includes `pure` option that is utilized by `psymon.pureComponent`, but can be an alternative way of creating or toggling purity.
 
 ### `psymon.pureComponent(name: string, setup: SetupT)`
 
-TODO
+Takes a stateless component, methods, lifecycle hooks, and state, and generates a stateful pure component.
+
 
 ---
 
