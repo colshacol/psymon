@@ -10,7 +10,7 @@ Class based React components are often misused. They can grow to become thousand
 
 ### Relevant Types
 
-```js
+```ts
 type ObjectOfAnyT = {
 	[name: string]: any
 };
@@ -39,7 +39,7 @@ TODO
 
 ## Usage Example
 
-```js
+```ts
 // index.js
 
 import psymon from 'psymon';
@@ -61,7 +61,7 @@ export const TodoList = psymon.component('TodoList', {
 });
 ```
 
-```js
+```ts
 // ./lifecycle.js
 
 export const componentDidUpdate = (self) => () => {
@@ -70,7 +70,7 @@ export const componentDidUpdate = (self) => () => {
 };
 ```
 
-```js
+```ts
 // ./methods.js
 
 export const setInputValue = (self) => (event) => {
