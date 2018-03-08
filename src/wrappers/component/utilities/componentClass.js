@@ -1,27 +1,21 @@
 import { Component, PureComponent } from 'react';
 
-import { entriesOf } from '../../utilities/entriesOf';
+import { appleClassMethods } from './applyClassMethods'
 
 export const componentClass = (name, setup, pure) => {
 	const _name = name || (pure ? 'PsymonPureComponent' : 'PsymonComponent');
-
 	const Wrapper = class extends (pure ? PureComponent : Component) {
 		constructor(props) {
 			super(props);
 
-			const self = this;
-			self.state = setup.state;
-			self.displayName = _name;
+			this.state = setup.state;
+			this.displayName = _name;
 
-			entriesOf([setup.methods, setup.lifecycle]).forEach((method) => {
-				self[method[0]] = method[1](self);
-			});
+			applyClassMethods(this)(setup);
 		}
 
 		render() {
-			const self = this;
-			const { props } = self;
-			return setup.component(self)(props);
+			return setup.component(this)(this.props);
 		}
 	};
 
