@@ -1,34 +1,9 @@
 import { Component, PureComponent } from 'react';
 
-import { entriesOf } from '../utilities/entriesOf';
+import { entriesOf } from '../../utilities/entriesOf';
 
-type ObjectOfAnyT = {
-	[name: string]: any
-};
-
-type ObjectOfFunctionsT = {
-	[name: string]: Function
-};
-
-type SetupT = {
-	state: ObjectOfAnyT,
-	methods: ObjectOfFunctionsT,
-	lifecycle: ObjectOfFunctionsT,
-	component: React.ComponentType
-};
-
-const defaultSetup = {
-	lifecycle: {},
-	methods: {},
-	state: {}
-};
-
-export const component = (
-	name: string,
-	setup: SetupT = defaultSetup,
-	pure: boolean = false
-) => {
-	const _name = name || (setup.pure ? 'PsymonPureComponent' : 'PsymonComponent');
+export const componentClass = (name, setup, pure) => {
+	const _name = name || (pure ? 'PsymonPureComponent' : 'PsymonComponent');
 
 	const Wrapper = class extends (pure ? PureComponent : Component) {
 		constructor(props) {
