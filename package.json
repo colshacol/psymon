@@ -20,18 +20,38 @@
 	"devDependencies": {
 		"@babel/cli": "^7.0.0-beta.40",
 		"@babel/core": "^7.0.0-beta.40",
+		"@babel/plugin-proposal-decorators": "^7.0.0-beta.40",
+		"@babel/plugin-proposal-export-namespace-from": "^7.0.0-beta.40",
+		"@babel/plugin-proposal-function-bind": "^7.0.0-beta.40",
+		"@babel/plugin-proposal-nullish-coalescing-operator": "^7.0.0-beta.40",
+		"@babel/plugin-proposal-numeric-separator": "^7.0.0-beta.40",
+		"@babel/plugin-proposal-optional-chaining": "^7.0.0-beta.40",
+		"@babel/plugin-proposal-pipeline-operator": "^7.0.0-beta.40",
+		"@babel/plugin-syntax-async-generators": "^7.0.0-beta.40",
+		"@babel/plugin-syntax-class-properties": "^7.0.0-beta.40",
+		"@babel/plugin-syntax-optional-catch-binding": "^7.0.0-beta.40",
 		"@babel/preset-env": "^7.0.0-beta.40",
 		"@babel/preset-flow": "^7.0.0-beta.40",
 		"@babel/preset-react": "^7.0.0-beta.40",
 		"@babel/preset-stage-0": "^7.0.0-beta.40",
+		"babel-core": "7.0.0-bridge.0",
+		"babel-jest": "^22.4.1",
 		"babel-plugin-flow-runtime": "^0.17.0",
 		"babel-plugin-module-resolver": "^3.1.0",
 		"babel-plugin-trace": "^1.1.0",
 		"babel-plugin-transform-dev": "^2.0.1",
-		"babel-preset-flow": "^6.23.0"
+		"babel-preset-flow": "^6.23.0",
+		"enzyme": "^3.3.0",
+		"enzyme-adapter-react-16": "^1.1.1",
+		"identity-obj-proxy": "^3.0.0",
+		"jest": "^22.4.2",
+		"jest-enzyme": "^5.0.3",
+		"react": "^16.2.0",
+		"react-dom": "^16.2.0"
 	},
 	"babel": {
 		"presets": [
+			"@babel/preset-react",
 			[
 				"@babel/preset-env",
 				{
@@ -44,6 +64,44 @@
 				}
 			],
 			"@babel/preset-flow"
+		],
+		"plugins": [
+			"@babel/plugin-proposal-pipeline-operator",
+			"@babel/plugin-proposal-nullish-coalescing-operator",
+			"@babel/plugin-proposal-export-namespace-from",
+			"@babel/plugin-proposal-function-bind",
+			"@babel/plugin-proposal-optional-chaining",
+			"@babel/plugin-syntax-async-generators",
+			"@babel/plugin-proposal-numeric-separator",
+			"@babel/plugin-syntax-optional-catch-binding",
+			"@babel/plugin-proposal-decorators",
+			"@babel/plugin-syntax-class-properties"
 		]
+	},
+	"prettier": {
+		"tabWidth": 2,
+		"trailingComma": "none",
+		"printWidth": 100,
+		"singleQuote": true,
+		"semi": false
+	},
+	"jest": {
+		"setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
+		"automock": false,
+		"verbose": false,
+		"silent": true,
+		"testMatch": [
+			"**/tests/*.t.js"
+		],
+		"setupFiles": [
+			"./.jest/setup.js"
+		],
+		"moduleNameMapper": {
+			"\\.(css|svg)": "identity-obj-proxy",
+			"^react$": "<rootDir>/node_modules/react"
+		},
+		"transform": {
+			"^.+\\.js$": "babel-jest"
+		}
 	}
 }

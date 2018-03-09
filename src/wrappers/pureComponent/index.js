@@ -1,4 +1,4 @@
-import { component } from './component';
+import { component } from '../component';
 
 type ObjectOfAnyT = {
 	[name: string]: any
