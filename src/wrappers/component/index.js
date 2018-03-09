@@ -1,7 +1,7 @@
 import { functional } from './utilities/functional'
 import { stateful } from './utilities/stateful'
 
-const defaultSetup = {
+const DEFAULT_SETUP = {
 	component: null,
 	lifecycle: {},
 	methods: {},
@@ -10,7 +10,7 @@ const defaultSetup = {
 
 export const component = (
 	name: string,
-	setup: SetupT = defaultSetup,
+	setup: SetupT = DEFAULT_SETUP,
 	pure: boolean = false
 ) => {
 	return hasStatefulSetup(setup, pure) && componentClass(name, setup, pure); || functional(name, setup.component);
