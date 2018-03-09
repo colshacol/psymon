@@ -1,6 +1,6 @@
 import { Component, PureComponent } from 'react';
 
-import { appleClassMethods } from './applyClassMethods'
+import { applyClassMethods } from './applyClassMethods'
 
 export const componentClass = (name, setup, pure) => {
 	const _name = name || (pure ? 'PsymonPureComponent' : 'PsymonComponent');

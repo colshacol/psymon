@@ -1,4 +1,5 @@
 export const functional = (name, component) => {
-	component.displayName = name;
-	return component;
+	const c = component({});
+	c.displayName = name;
+	return c;
 }
