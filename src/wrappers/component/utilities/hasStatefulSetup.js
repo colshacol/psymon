@@ -4,5 +4,5 @@ export const hasStatefulSetup = (setup: SetupT, pure: boolean) => {
 		'methods' in setup,
 		'state' in setup,
 		pure
-	].contains(true)
+	].includes(true)
 }

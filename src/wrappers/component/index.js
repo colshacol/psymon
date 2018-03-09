@@ -13,7 +13,7 @@ export const component = (
 	setup: SetupT = defaultSetup,
 	pure: boolean = false
 ) => {
-	return stateful(name, setup, pure) || functional(name, setup.component);
+	return hasStatefulSetup(setup, pure) && componentClass(name, setup, pure); || functional(name, setup.component);
 }
 
 

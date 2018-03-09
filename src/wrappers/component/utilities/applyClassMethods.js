@@ -1,4 +1,4 @@
-import { entriesOf } from '../../utilities/entriesOf';
+import { entriesOf } from './entriesOf';
 
 export const applyClassMethods = (self) => (setup) => {
 	return entriesOf([setup.methods, setup.lifecycle]).map((method) => {
