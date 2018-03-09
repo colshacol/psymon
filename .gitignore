@@ -1,9 +1,5 @@
 node_modules
-examples
 .vscode
 .cache
-dist
-
 yarn-error.log
-
-index.html
+lib/
